@@ -1,36 +1,41 @@
 # domained
 A domain name enumeration tool
 
-**Gist:** Some ~~terrible~~ continually updated python code leveraging some awesome tools that I use for bug bounty reconnaissance. 
+**Gist:** Some ~~terrible~~ continually updated python code leveraging some awesome tools that I use for bug bounty reconnaissance.
 
-**The tools contained in domained requires Kali Linux (preferred) or Debian 7+ and Recon-ng** 
+**The tools contained in domained requires Kali Linux (preferred) or Debian 7+ and Recon-ng**
 
 Domained uses several subdomain enumeration tools and wordlists to create a unique list of subdmains that are passed to EyeWitness for reporting with categorized screenshots, server response headers and signature based default credential checking. *(resources are saved to ./bin and output is saved to ./output)*
 
-##### Initial Install: 
+##### Initial Install:
 * domained tools: `python domained.py --install`
 * Python required modules: `sudo pip install -r ./ext/requirements.txt`
-###### Other Dependencies: 
+###### Other Dependencies:
 * ldns library for DNS programming: `sudo apt-get install libldns-dev -y`
 * Go Programming Language: `sudo apt-get install golang`
 
 **_NOTE: This is an active recon – only perform on applications that you have permission to test against._**
 
+##### Additional option
+1. Add only amass and subfinder
+2. Add cname and domain takeover tools
+3. SPF records for domain
+
 ##### Tools leveraged:
 
 ###### Subdomain Enumeraton Tools:
-1. [Sublist3r](https://github.com/aboul3la/Sublist3r) by Ahmed Aboul-Ela 
-2. [enumall](https://github.com/jhaddix/domain) by Jason Haddix 
-3. [Knock](https://github.com/guelfoweb/knock) by Gianni Amato 
-4. [Subbrute](https://github.com/TheRook/subbrute) by TheRook 
+1. [Sublist3r](https://github.com/aboul3la/Sublist3r) by Ahmed Aboul-Ela
+2. [enumall](https://github.com/jhaddix/domain) by Jason Haddix
+3. [Knock](https://github.com/guelfoweb/knock) by Gianni Amato
+4. [Subbrute](https://github.com/TheRook/subbrute) by TheRook
 5. [massdns](https://github.com/blechschmidt/massdns) by B. Blechschmidt
 6. [Recon-ng](https://bitbucket.org/LaNMaSteR53/recon-ng) by Tim Tomes (LaNMaSteR53)
 7. [Amass](https://github.com/caffix/amass) by Jeff Foley (caffix)
 
 ###### Reporting + Wordlists:
 - [EyeWitness](https://github.com/ChrisTruncer/EyeWitness) by ChrisTruncer  
-- [SecList](https://github.com/danielmiessler/SecLists) (DNS Recon List) by Daniel Miessler 
-- [LevelUp All.txt Subdomain List](https://gist.github.com/jhaddix/86a06c5dc309d08580a018c66354a056) by Jason Haddix 
+- [SecList](https://github.com/danielmiessler/SecLists) (DNS Recon List) by Daniel Miessler
+- [LevelUp All.txt Subdomain List](https://gist.github.com/jhaddix/86a06c5dc309d08580a018c66354a056) by Jason Haddix
 
 ##### Usage
 ````
@@ -60,7 +65,7 @@ Note: --bruteall must be used with the -b flag
 ````
 
 Option | Description
------- | --- 
+------ | ---
 --install/--upgrade  |  Both do the same function – install all prerequisite tools (Kali is a prerequisite AFAIK)
 --vpn   |   Check if you are on VPN (update with your provider)
 --quick |   Use ONLY Sublis3r's subdomain methods (+ subbrute)
@@ -72,7 +77,7 @@ Option | Description
 -d  |   The domain you want to preform recon on
 -b  |   Bruteforce with subbrute/massdns and SecList wordlist
 -s n    |   Only HTTPs domains
--p  |   Add port 8080 for HTTP and 8443 for HTTPS 
+-p  |   Add port 8080 for HTTP and 8443 for HTTPS
 
 ##### Notifications
 - Complete the ext/notifycfg.ini for Pushover or Gmail notifications. (*Enable must be set to True*)
@@ -89,7 +94,7 @@ Option | Description
 ##### Thank You to Contributors
 * [ccsplit](https://github.com/ccsplit) - Multiple code improvements including the ability to run domained from any directory
 * [jafoca](https://github.com/jafoca) - Massdns fix
-* [mortymorty](https://github.com/mortymorty) - SecList brute file fix 
+* [mortymorty](https://github.com/mortymorty) - SecList brute file fix
 * [Chan9390](https://github.com/Chan9390) - Updates to the requirements.txt
 * [dainok](https://github.com/dainok) - Python 3.6+ fixes
 
